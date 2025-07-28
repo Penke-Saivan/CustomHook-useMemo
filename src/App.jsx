@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import "./App.css";
 
@@ -14,10 +14,14 @@ function App() {
     return count * count;
   }
 
+  const expensive = useMemo(double, [count]);
+  console.log(expensive);
+  
+
   return (
     <>
       <h1>Counter1: {count}</h1>
-      <h2>Double:{double()}</h2>
+      <h2>Double:{expensive}</h2>
       <button type="button" onClick={handleCLick}>
         Click{" "}
       </button>
