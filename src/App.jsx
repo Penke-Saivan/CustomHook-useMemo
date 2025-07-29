@@ -1,22 +1,19 @@
 import { useMemo, useState } from "react";
 
 import "./App.css";
+import CustomuseMemo from "./CustomuseMemo";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [count1, setCount1] = useState(0);
+  const [count1, setCount1] = useState(120);
   function handleCLick() {
     setCount(count + 1);
   }
   function double() {
-    console.log("Double");
-
     return count * count;
   }
 
-  const expensive = useMemo(double, [count]);
-  console.log(expensive);
-  
+  const expensive = CustomuseMemo(double, [count]);
 
   return (
     <>
